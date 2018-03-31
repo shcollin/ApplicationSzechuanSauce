@@ -4,4 +4,5 @@
     <string name="add_trip_button">Add Trip</string>
     <string name="title_screen_car">Car:</string>
     <string name="title_screen_destination">Destination:</string>
+    <string name="intent_string">TripInfo</string>
 </resources>

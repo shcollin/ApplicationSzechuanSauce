@@ -12,34 +12,34 @@ public class TabActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tab);
         TabHost host = (TabHost)findViewById(R.id.tabHost);
         host.setup();
 
         //Tab 1
-        TabHost.TabSpec spec = host.newTabSpec("Tab One");
+        TabHost.TabSpec spec = host.newTabSpec("Summary");
         spec.setContent(R.id.tab1);
-        spec.setIndicator("Summery");
+        spec.setIndicator("Summary");
         host.addTab(spec);
 
         //Tab 2
-        spec = host.newTabSpec("Tab Two");
+        spec = host.newTabSpec("Destination");
         spec.setContent(R.id.tab2);
         spec.setIndicator("Destination");
         host.addTab(spec);
 
         //Tab 3
-        spec = host.newTabSpec("Tab Three");
+        spec = host.newTabSpec("Your Car(s)");
         spec.setContent(R.id.tab3);
         spec.setIndicator("Your Car(s)");
         host.addTab(spec);
         //Tab 4
-        spec = host.newTabSpec("Tab Four");
+        spec = host.newTabSpec("Road Map");
         spec.setContent(R.id.tab4);
         spec.setIndicator("Road Map");
         host.addTab(spec);
         //Tab 5
-        spec = host.newTabSpec("Tab Five");
+        spec = host.newTabSpec("Checklist");
         spec.setContent(R.id.tab5);
         spec.setIndicator("Checklist");
         host.addTab(spec);
