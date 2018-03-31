@@ -33,15 +33,17 @@ public class TabActivity extends AppCompatActivity {
         spec.setContent(R.id.tab3);
         spec.setIndicator("Tab Three");
         host.addTab(spec);
-        //Tab 3
+        //Tab 4
         spec = host.newTabSpec("Tab Four");
         spec.setContent(R.id.tab4);
         spec.setIndicator("Tab Four");
         host.addTab(spec);
-        //Tab 3
-        spec = host.newTabSpec("Tab Five");
+        //Tab 5
+        spec = host.newTabSpec("Checklist");
         spec.setContent(R.id.tab5);
-        spec.setIndicator("Tab Five");
+        spec.setIndicator("Checklist");
         host.addTab(spec);
     }
+
+
 }
