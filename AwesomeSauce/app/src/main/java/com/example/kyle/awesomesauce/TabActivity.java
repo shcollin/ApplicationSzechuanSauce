@@ -19,27 +19,27 @@ public class TabActivity extends AppCompatActivity {
         //Tab 1
         TabHost.TabSpec spec = host.newTabSpec("Tab One");
         spec.setContent(R.id.tab1);
-        spec.setIndicator("Tab One");
+        spec.setIndicator("Summery");
         host.addTab(spec);
 
         //Tab 2
         spec = host.newTabSpec("Tab Two");
         spec.setContent(R.id.tab2);
-        spec.setIndicator("Tab Two");
+        spec.setIndicator("Destination");
         host.addTab(spec);
 
         //Tab 3
         spec = host.newTabSpec("Tab Three");
         spec.setContent(R.id.tab3);
-        spec.setIndicator("Tab Three");
+        spec.setIndicator("Your Car(s)");
         host.addTab(spec);
         //Tab 4
         spec = host.newTabSpec("Tab Four");
         spec.setContent(R.id.tab4);
-        spec.setIndicator("Tab Four");
+        spec.setIndicator("Road Map");
         host.addTab(spec);
         //Tab 5
-        spec = host.newTabSpec("Checklist");
+        spec = host.newTabSpec("Tab Five");
         spec.setContent(R.id.tab5);
         spec.setIndicator("Checklist");
         host.addTab(spec);
