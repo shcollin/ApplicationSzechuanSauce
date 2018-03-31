@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AwesomeSauce</string>
+    <string name="trip_main">Trips</string>
+    <string name="add_trip_button">Add Trip</string>
+    <string name="title_screen_car">Car:</string>
+    <string name="title_screen_destination">Destination:</string>
 </resources>
