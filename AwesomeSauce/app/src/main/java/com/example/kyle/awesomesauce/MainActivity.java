@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         for(int i = 0; i < 3; i++){
             tripArrayList.add(new Trip());
-            tripArrayList.get(i).setTripTitle("Trip " + i);
+            tripArrayList.get(i).setTripTitle("Trip " + (i + 1));
             tripArrayList.get(i).setDestination("Fayetteville, AR");
             tripArrayList.get(i).setCar("Ford Focus");
         }
