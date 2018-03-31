@@ -1,5 +1,6 @@
 package com.example.kyle.awesomesauce;
 
+
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.Toast;
+
 
 
 public class TabActivity extends AppCompatActivity {
@@ -83,6 +85,7 @@ public class TabActivity extends AppCompatActivity {
     }
 
 
+
     String m_Text;
     public void updateDestinationButton(View v){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -114,7 +117,9 @@ public class TabActivity extends AppCompatActivity {
             }
         });
 
+
         builder.show();
 
     }
 }
+
