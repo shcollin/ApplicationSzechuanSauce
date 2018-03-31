@@ -2,26 +2,19 @@ package com.example.kyle.awesomesauce;
 
 
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.InputType;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
-
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.SupportMapFragment;
-
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TabHost;
 import android.widget.Toast;
+
+import com.google.android.gms.maps.SupportMapFragment;
 
 
 
@@ -96,7 +89,7 @@ public class TabActivity extends AppCompatActivity {
     String m_Text;
     public void updateDestinationButton(View v){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Title");
+        builder.setTitle("Destination Location");
 
 // Set up the input
         final EditText input = new EditText(this);
