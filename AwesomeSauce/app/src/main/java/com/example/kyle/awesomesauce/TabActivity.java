@@ -1,20 +1,27 @@
 package com.example.kyle.awesomesauce;
 
-        import android.content.DialogInterface;
-        import android.support.v7.app.AlertDialog;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.text.InputType;
-        import android.view.Menu;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.EditText;
-        import android.widget.ListView;
-        import android.widget.TabHost;
-        import android.widget.TextView;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.InputType;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
-        import com.google.android.gms.maps.MapView;
-        import com.google.android.gms.maps.SupportMapFragment;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TabHost;
+import android.widget.TextView;
+
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.SupportMapFragment;
+
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TabHost;
+import android.widget.Toast;
+
 
 public class TabActivity extends AppCompatActivity {
     TabHost tabHost;
@@ -22,7 +29,7 @@ public class TabActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
-        TabHost host = (TabHost)findViewById(R.id.tabHost1);
+        TabHost host = (TabHost) findViewById(R.id.tabHost1);
         host.setup();
 
         //Tab 1
@@ -58,10 +65,23 @@ public class TabActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.check_list_view);
         listView.setAdapter(adapter);
 
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.maps);
         mapFragment.getMapAsync(new MapsActivity());
+
+
+        Button button = (Button) findViewById(R.id.check_list_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(), "This is my Toast message!",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
     }
+
 
     String m_Text;
     public void updateDestinationButton(View v){
@@ -76,6 +96,7 @@ public class TabActivity extends AppCompatActivity {
         //input2.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
         //builder.setView(input2);
+
 
 // Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -94,5 +115,6 @@ public class TabActivity extends AppCompatActivity {
         });
 
         builder.show();
+
     }
 }
