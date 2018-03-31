@@ -1,10 +1,10 @@
-
 package com.example.kyle.awesomesauce;
 
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.view.Menu;
         import android.view.MenuItem;
+        import android.widget.ListView;
         import android.widget.TabHost;
 
 public class TabActivity extends AppCompatActivity {
@@ -13,7 +13,7 @@ public class TabActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
-        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        TabHost host = (TabHost)findViewById(R.id.tabHost1);
         host.setup();
 
         //Tab 1
@@ -43,7 +43,13 @@ public class TabActivity extends AppCompatActivity {
         spec.setContent(R.id.tab5);
         spec.setIndicator("Checklist");
         host.addTab(spec);
+        ListView listView;
+        String[] checklist = {"sunscreen", "mom", "dad", "brother", "pants", "shirt", "toothpaste"};
+        CheckListAdapter adapter = new CheckListAdapter(this, checklist);
+        listView = (ListView) findViewById(R.id.check_list_view);
+        listView.setAdapter(adapter);
     }
 
 
+    
 }
