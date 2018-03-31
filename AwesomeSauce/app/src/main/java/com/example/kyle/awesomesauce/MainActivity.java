@@ -1,12 +1,18 @@
 package com.example.kyle.awesomesauce;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -36,10 +42,8 @@ public class MainActivity extends AppCompatActivity {
             tripArrayList.get(i).setDestination("Fayetteville, AR");
             tripArrayList.get(i).setCar("Ford Focus");
         }
-        TitleListAdapter adapter = new TitleListAdapter(this, tripArrayList);
 
-        listView = (ListView) findViewById(R.id.trips_list_view);
-        listView.setAdapter(adapter);
+        setList();
 
         this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -51,5 +55,50 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void setList(){
+        TitleListAdapter adapter = new TitleListAdapter(this, tripArrayList);
+
+        listView = (ListView) findViewById(R.id.trips_list_view);
+        listView.setAdapter(adapter);
+    }
+
+
+    public void addNewTrip(View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Title");
+        LayoutInflater inflater = this.getLayoutInflater();
+// Set up the input
+        final EditText input = new EditText(this);
+        final EditText input2 = new EditText(this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+       // input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        //input2.setInputType(InputType.TYPE_CLASS_TEXT);
+        View dialogView = inflater.inflate(R.layout.main_title_dialog, null);
+        builder.setView(dialogView);
+        //builder.setView(input2);
+        final EditText title = (EditText) dialogView.findViewById(R.id.editText);
+        final EditText destination = (EditText) dialogView.findViewById(R.id.editText2);
+        final EditText car = (EditText) dialogView.findViewById(R.id.editText3);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+               tripArrayList.add(new Trip(title.getText().toString(), destination.getText().toString(), car.getText().toString()));
+
+                setList();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+
+        builder.show();
     }
 }

@@ -27,12 +27,16 @@ import android.widget.Toast;
 
 public class TabActivity extends AppCompatActivity {
     TabHost tabHost;
+    TripTransition tripTransition;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
         TabHost host = (TabHost) findViewById(R.id.tabHost1);
         host.setup();
+
+        this.tripTransition = this.getIntent().getParcelableExtra(this.getString(R.string.intent_string));
+
 
         //Tab 1
         TabHost.TabSpec spec = host.newTabSpec("Summary");
@@ -66,6 +70,9 @@ public class TabActivity extends AppCompatActivity {
         CheckListAdapter adapter = new CheckListAdapter(this, checklist);
         listView = (ListView) findViewById(R.id.check_list_view);
         listView.setAdapter(adapter);
+
+        TextView summaryTitle = (TextView) findViewById(R.id.tripTitle);
+        summaryTitle.setText(this.tripTransition.getTripTitle());
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

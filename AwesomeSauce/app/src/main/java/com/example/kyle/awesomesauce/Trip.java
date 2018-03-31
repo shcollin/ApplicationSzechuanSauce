@@ -14,6 +14,12 @@ public class Trip {
         this.car = "";
     }
 
+    public Trip(String tripTitle, String destination, String car){
+        this.tripTitle = tripTitle;
+        this.destination = destination;
+        this.car = car;
+    }
+
     public Trip(Trip trip){
         this.tripTitle = trip.getTripTitle();
         this.destination = trip.getDestination();
