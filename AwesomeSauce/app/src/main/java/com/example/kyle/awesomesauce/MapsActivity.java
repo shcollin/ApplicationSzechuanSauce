@@ -3,14 +3,14 @@ package com.example.kyle.awesomesauce;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
-        import android.os.Bundle;
+import android.os.Bundle;
 
-        import com.google.android.gms.maps.CameraUpdateFactory;
-        import com.google.android.gms.maps.GoogleMap;
-        import com.google.android.gms.maps.OnMapReadyCallback;
-        import com.google.android.gms.maps.SupportMapFragment;
-        import com.google.android.gms.maps.model.LatLng;
-        import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -47,23 +47,5 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        getLocationPermission();
-
-        updateLocationUI();
-
-        getDeviceLocation();
-    }
-
-    private void getDeviceLocation(){
-        Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
-        locationResult.addOnCompleteListener(this, new OnCompleteListener<Location>() {
-            @Override
-            public void onComplete(@NonNull Task<Location> task) {
-                if (task.isSuccessful()) {
-                    // Set the map's camera position to the current location of the device.
-                    mLastKnownLocation = task.getResult();
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                            new LatLng(mLastKnownLocation.getLatitude(),
-                                    mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
     }
 }
