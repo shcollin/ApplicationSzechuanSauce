@@ -39,4 +39,5 @@ public class CheckListAdapter extends ArrayAdapter {
         return rowView;
 
     }
+
 }

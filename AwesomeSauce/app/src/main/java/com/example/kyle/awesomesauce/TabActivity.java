@@ -4,8 +4,11 @@ package com.example.kyle.awesomesauce;
         import android.os.Bundle;
         import android.view.Menu;
         import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.Button;
         import android.widget.ListView;
         import android.widget.TabHost;
+        import android.widget.Toast;
 
 public class TabActivity extends AppCompatActivity {
     TabHost tabHost;
@@ -13,7 +16,7 @@ public class TabActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
-        TabHost host = (TabHost)findViewById(R.id.tabHost1);
+        TabHost host = (TabHost) findViewById(R.id.tabHost1);
         host.setup();
 
         //Tab 1
@@ -48,8 +51,16 @@ public class TabActivity extends AppCompatActivity {
         CheckListAdapter adapter = new CheckListAdapter(this, checklist);
         listView = (ListView) findViewById(R.id.check_list_view);
         listView.setAdapter(adapter);
+        Button button = (Button) findViewById(R.id.check_list_button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(), "This is my Toast message!",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+
     }
-
-
-    
 }
